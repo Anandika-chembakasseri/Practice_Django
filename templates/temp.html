@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <style>
-body{
-    background-image: url("{% static images/laptop-3196481_1280.jpg  %}");
-    /* background-position: center; */
+body {
+    background-image: url("{% static 'images/laptop-3196481_1280.jpg' %}");
     background-size: cover;
     background-repeat: no-repeat;
-}
+  }
 .box{
     background-color: #ECF7FD;
     width: 450px;
@@ -23,7 +22,7 @@ body{
     border-radius: 5px;
     padding: 10px;
 }
-input[type=text],input[type=email],input[type=dob],input[type=mobile]{
+input[type=text],input[type=email],input[type=dob],input[type=mobile],input[type=password]{
     width: 250px;
     height: 30px;
     padding: 12px 20 ox;
@@ -57,6 +56,10 @@ input[type=text],input[type=email],input[type=dob],input[type=mobile]{
             <input type="text" name="text" id="name" placeholder="enter your name" required><br>
             <label for="email">E-mail</label>
             <input type="email" name="email" id="email" placeholder="enter your e-mail" required><br>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="enter your password" required><br>
+            <label for="password">confirm password</label>
+            <input type="password" name="password" id="password" placeholder="confirm password" required><br>
             <label for="dob">Date Of Birth</label>
             <input type="date" name="dob" id="dob" required ><br>
             <label for="mobile">Mobile no:</label>
