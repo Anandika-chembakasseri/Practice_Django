@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+ body {
+        background-image: url("{% static 'images/pexels-jplenio-1103970.jpg' %}");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+
+    input[type=text],
+    input[type=password] {
+        width: 200px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 14px 20px;
+        color: white;
+        background-color: #1A4A61;
+        margin: 8px 0;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        width: 100px;
+    }
+
+    button :hover {
+        color: aliceblue;
+        opacity: 0.8;
+    }
+
+    .box{
+        background-color: #9BB1AF;
+        width: 450px;
+        text-align: center;
+        margin-left: 490px;
+        margin-top: 250px;
+        opacity: 0.8;
+        border-radius: 5px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <form action="">
+        <div class="box">
+        <h2>LOGIN HERE</h2>
+        <div class="input_container"></div>
+        <label for="Uname"><br>username</label>
+        <input type="text" placeholder="enter username" name="Uname" required>
+        <label for="pwd"><br>password</label>
+        <input type="password" placeholder="enter your password" name="pwd" required><br><br>
+        <a href="/project2/templates/temp.html">
+        <button type="submit">LOGIN</button>
+        </a>
+</div>
+    </form>
+
+</body>
+
+</html>
