@@ -1,35 +1,49 @@
-# your_app/models.py
 from django.db import models
 from django.core.validators import RegexValidator
 
+
 class Registration(models.Model):
     GENDER_CHOICES = [
-        ("male", "Male"),
-        ("female", "Female"),
-        ("other", "Other"),
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other'),
     ]
 
     COURSE_CHOICES = [
-        ("sel", "Select one course"),
-        ("dm", "Digital Marketing"),
-        ("py", "Python Fullstack"),
-        ("bd", "Business Development"),
-        ("da", "Data Analyst"),
-        ("react", "React Developer"),
+        ('dm', 'Digital Marketing'),
+        ('py', 'Python Fullstack'),
+        ('bd', 'Business Development'),
+        ('da', 'Data Analyst'),
+        ('react', 'React Developer'),
     ]
 
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    dob = models.DateField()
+    password = models.CharField(max_length=128)  # store hashed password ideally
+
+    dob = models.DateField(verbose_name="Date of Birth")
+
     mobile = models.CharField(
         max_length=10,
-        unique=True,
-        validators=[RegexValidator(r"^\d{10}$", "Enter a valid 10-digit mobile number.")],
-        help_text="10-digit mobile number",
+        validators=[
+            RegexValidator(
+                regex=r'^[0-9]{10}$',
+                message='Mobile number must be 10 digits.'
+            )
+        ]
     )
-    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
-    course = models.CharField(max_length=20, choices=COURSE_CHOICES, default="sel")
+
+    gender = models.CharField(
+        max_length=10,
+        choices=GENDER_CHOICES
+    )
+
+    course = models.CharField(
+        max_length=20,
+        choices=COURSE_CHOICES
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} ({self.email})"
+        return f"{self.name} - {self.email}"
